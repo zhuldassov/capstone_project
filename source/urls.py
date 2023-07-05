@@ -24,6 +24,6 @@ urlpatterns = [
     path('', views.main_page, name='main_page'),
     path('edit-personal-info/', views.edit_personal_info, name='edit_personal_info'),
     path('delete-employee/<int:employee_id>/', views.delete_employee, name='delete_employee'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', views.logout_view, name='logout'),
     path('employee-list/', views.employee_list, name='employee_list')
 ]

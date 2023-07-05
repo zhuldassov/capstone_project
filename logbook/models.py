@@ -17,6 +17,7 @@ class Employee(models.Model):
     mobile_phone = models.CharField(max_length=20)
     work_phone = models.CharField(max_length=20)
     email = models.EmailField()
+    occupation = models.CharField(max_length=100, default='Manager')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

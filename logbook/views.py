@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
-
-from .models import Employee
+from django.core.paginator import Paginator
+from .models import Employee, Department
 from .forms import EmployeeForm
 
 
@@ -27,18 +27,22 @@ def login_view(request):
     return render(request, 'login.html')
 
 
-
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('main_page')
 
 
 def employee_list(request):
-    employees = Employee.objects.all()  # Fetch all employees from the database
-    context = {'employees': employees}  # Create a context dictionary with the employees
+    departments = Department.objects.all()
+    employees_per_department = 2
+    paginator = Paginator(departments, employees_per_department)
+    page_number = request.GET.get('page')  # Get the current page number
+    page_obj = paginator.get_page(page_number)  # Get the page object for the current page
+
+    context = {
+        'page_obj': page_obj
+    }
     return render(request, 'employee_list.html', context)
-
-
 @login_required
 def edit_personal_info(request):
     current_user = request.user
