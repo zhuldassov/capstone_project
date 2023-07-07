@@ -4,7 +4,34 @@
   <h2>Add Employee</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-group">
+      <label for="id_first_name">First Name:</label>
+      {{ form.first_name }}
+    </div>
+    <div class="form-group">
+      <label for="id_last_name">Last Name:</label>
+      {{ form.last_name }}
+    </div>
+    <div class="form-group">
+      <label for="id_mobile_phone">Mobile Phone:</label>
+      {{ form.mobile_phone }}
+    </div>
+    <div class="form-group">
+      <label for="id_work_phone">Work Phone:</label>
+      {{ form.work_phone }}
+    </div>
+    <div class="form-group">
+      <label for="id_email">Email:</label>
+      {{ form.email }}
+    </div>
+    <div class="form-group">
+      <label for="id_occupation">Occupation:</label>
+      {{ form.occupation }}
+    </div>
+    <div class="form-group">
+      <label for="id_department">Department:</label>
+      {{ form.department }}
+    </div>
     <button type="submit">Add</button>
   </form>
 {% endblock %}

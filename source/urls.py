@@ -15,15 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from logbook import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main_page, name='main_page'),
-    path('edit-personal-info/', views.edit_personal_info, name='edit_personal_info'),
+    #path('', views.main_page, name='main_page'),
+    path('employee-list/', views.employee_list, name='employee_list'),
+    path('accounts/', include('accounts.urls')),
+    path('', views.login_view, name='login'),
+    path('edit_personal_info/', views.edit_personal_info, name='edit_personal_info'),
+    path('employee-management/', views.employee_management, name='employee_management'),
+    path('add_employee/', views.add_employee, name='add_employee'),
+    path('update-employee/<int:employee_id>/', views.update_employee, name='update_employee'),
     path('delete-employee/<int:employee_id>/', views.delete_employee, name='delete_employee'),
-    path('logout/', views.logout_view, name='logout'),
-    path('employee-list/', views.employee_list, name='employee_list')
+    path('confirm-delete-employee/<int:employee_id>/', views.confirm_delete_employee, name='confirm_delete_employee')
 ]
