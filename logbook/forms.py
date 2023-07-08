@@ -20,4 +20,4 @@ class EmployeeForm(forms.ModelForm):
 class EditPersonalInfoForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('email', 'password')
+        fields = ('first_name', 'last_name', 'username', 'email', 'password')

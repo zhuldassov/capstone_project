@@ -1,10 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Update Employee</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Department:</span>
+      {{ form.department }}
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">First Name:</span>
+      <input type="text" class="form-control" id="id_first_name" name="first_name" placeholder="Enter first name" value="{{ form.first_name.value }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Last Name:</span>
+      <input type="text" class="form-control" id="id_last_name" name="last_name" placeholder="Enter last name" value="{{ form.last_name.value }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Mobile Phone:</span>
+      <input type="text" class="form-control" id="id_mobile_phone" name="mobile_phone" placeholder="Enter mobile phone" value="{{ form.mobile_phone.value }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Work Phone:</span>
+      <input type="text" class="form-control" id="id_work_phone" name="work_phone" placeholder="Enter work phone" value="{{ form.work_phone.value }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Email:</span>
+      <input type="email" class="form-control" id="id_email" name="email" placeholder="Enter email" value="{{ form.email.value }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Occupation:</span>
+      <input type="text" class="form-control" id="id_occupation" name="occupation" placeholder="Enter occupation" value="{{ form.occupation.value }}">
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <button type="submit" class="btn btn-secondary w-25">Update</button>
+    </div>
   </form>
 {% endblock %}

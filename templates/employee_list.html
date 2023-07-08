@@ -2,7 +2,8 @@
 
 {% block content %}
     {% for department in page_obj %}
-        <h3>{{ department.name }}</h3>
+<a class="list-group-item list-group-item-action list-group-item-dark">{{ department.name }}</a>
+    <li class="list-group-item bg-o text-black"></li>
         {% if department.employee_set.all %}
             <ul>
                 {% for employee in department.employee_set.all %}

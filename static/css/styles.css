@@ -26,6 +26,8 @@ nav {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 40px auto;
+    text-align: left;
+}
+
+.font-italic {
 }
